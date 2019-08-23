@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   swaap.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 11:01:25 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/20 12:17:03 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/07/25 16:42:49 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/13 09:20:19 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_strequ(char *s1, char *s2)
+void	swap(t_list *top)
 {
-	int i;
-	int j;
+	int tmp;
+	int *a;
+	int *b;
 
-	i = 0;
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
-	{
-		i++;
-	}
-	j = (s1[i] - s2[i]);
-	if (j == 0)
-	{
-		return (1);
-	}
-	return (0);
+	a = &top->data;
+	if (top->next == NULL)
+		return ;
+	b = &top->next->data;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+void	swapab(t_list *top, t_list *bottom)
+{
+	swap(top);
+	swap(bottom);
 }

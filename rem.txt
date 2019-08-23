@@ -1,0 +1,5 @@
+check on push_swap(isCheck functions)
+Makefile
+int min and max
+Norm
+chunk 7 for 500 numbers

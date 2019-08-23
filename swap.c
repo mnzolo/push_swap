@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 11:01:25 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/20 12:17:03 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/07/23 17:47:38 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/14 14:15:30 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_strequ(char *s1, char *s2)
+void	nswap(t_list *stack, char c)
 {
-	int i;
-	int j;
+	int *a;
+	int *b;
+	int temp;
 
-	i = 0;
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+	a = &stack->data;
+	if (stack->next == NULL)
+		return ;
+	b = &stack->next->data;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+	if (c == 'c')
+		return ;
+	else if (c == 'a')
 	{
-		i++;
+		ft_putendl("sa");
 	}
-	j = (s1[i] - s2[i]);
-	if (j == 0)
-	{
-		return (1);
-	}
-	return (0);
+	ft_putendl("sb");
+}
+
+void	ab_swap(t_list *stack_a, t_list *stack_b, char r)
+{
+	nswap(stack_a, r);
+	nswap(stack_b, r);
 }

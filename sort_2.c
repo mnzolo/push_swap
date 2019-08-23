@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   sort_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 11:01:25 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/20 12:17:03 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/08/21 09:48:08 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/21 12:15:02 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_strequ(char *s1, char *s2)
+void  sort_2(t_list **stacka, char c)
 {
-	int i;
-	int j;
+	t_list *temp;
 
-	i = 0;
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+	temp = *stacka;
+	if (temp->data > temp->next->data)
 	{
-		i++;
+		nswap(*stacka, c);
 	}
-	j = (s1[i] - s2[i]);
-	if (j == 0)
-	{
-		return (1);
-	}
-	return (0);
+	stacka = &temp;
 }

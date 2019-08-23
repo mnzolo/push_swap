@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   sort_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 11:01:25 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/20 12:17:03 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/08/21 11:36:37 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/21 12:40:23 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_strequ(char *s1, char *s2)
+void	sort_5(t_list **stacka, t_list **stackb)
 {
-	int i;
-	int j;
+	int	   i;
+	int    k;
 
 	i = 0;
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+	while (i < 2)
 	{
+		push_smallest(stacka, stackb);
 		i++;
 	}
-	j = (s1[i] - s2[i]);
-	if (j == 0)
+	k = ft_lstlen(*stacka);
+	if (k == 3)
 	{
-		return (1);
+		sort_3(stacka, 'a');
 	}
-	return (0);
+	push_a(stackb, stacka, 'a');
+	push_a(stackb, stacka, 'a');
 }

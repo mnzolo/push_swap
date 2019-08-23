@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   sorted.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 11:01:25 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/20 12:17:03 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/08/18 18:03:27 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/20 14:55:32 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_strequ(char *s1, char *s2)
+int     sorted(t_list *stack, int len)
 {
-	int i;
-	int j;
-
-	i = 0;
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
-	{
-		i++;
-	}
-	j = (s1[i] - s2[i]);
-	if (j == 0)
-	{
-		return (1);
-	}
-	return (0);
+   t_list *temp;
+   temp = stack;
+   while (temp->next != NULL)
+   {
+       if (temp->data > temp->next->data)
+           return (0);
+       temp = temp->next;
+   }
+   if (ft_lstlen(stack) == len)
+       return (1);
+   return (0);
 }

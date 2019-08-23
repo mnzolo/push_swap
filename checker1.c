@@ -6,19 +6,26 @@
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 16:37:45 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/07/22 09:53:34 by mnzolo           ###   ########.fr       */
+/*   Updated: 2019/08/23 16:41:37 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int 	is(char *v)
 {
 	int i;
 
-	
+
 	i = 0;
+	if (ft_strcmp(v, "2147483647") == 0)
+	{
+		return (1);
+	}
+	if (v[i] == '-' || v[i] == '+')
+	{
+		i++;
+	}
 	while (v[i] >= '0' && v[i] <= '9')
 	{
 		i++;
@@ -27,61 +34,63 @@ int 	is(char *v)
 	}
 	return (0);
 }
-/*
-int	check(struct node *top)
-{
-	struct node *s;
 
-	s = top;
-	while (s -> next != NULL)
-	{
-		if (s -> data == s -> next -> data)
-		{
-			 return (0);
-		}
-		s = s -> next;
-	}
-	return (1);
-}*/
-void	print(struct node *top)
+int	check(t_list *top)
 {
+	t_list *s;
+
 	while (top)
 	{
-		ft_putnbr(top -> data);
-		ft_putstr("->");
-		top = top -> next;
+		s = top->next;
+		while (s)
+		{
+			if (top->data == s->data)
+				return (0);
+			s = s->next;
+		}
+		top = top->next;
 	}
-}
-void	add(int argv)
-{
-	struct node *tmp;
-
-	tmp = (struct node *)malloc(sizeof(struct node));
-	tmp -> data = argv;
-	tmp -> next = top;
-	top = tmp;
+	return (1);
 }
 
+#include <stdio.h>
 int main(int argc, char **argv)
 {
-	int i;
-	int m;
+	int 	i;
+	int 	m;
+	char	*line;
 
-	i = 1;
-	while ( i < argc)
+	t_list 	*top = NULL;
+	t_list 	*stack_b = NULL;
+	i = argc - 1;
+	while (argc - 1)
 	{
-		if (is(argv[i]) == 1 /*check(top) == 1*/)
+		if (is(argv[i]) == 1 && isMax(argv[i]) == 1)
 		{
 			m = ft_atoi(argv[i]);
-			add(m);
-			i++;
+			top = push(m, top);
+			i--;
 		}
-		else if (is(argv[i]) == 0 /*check(top) == 0*/)
+		else if (is(argv[i]) == 0 || isMax(argv[i]) == 0)
 		{
 			ft_putstr("Error");
 			exit(1);
 		}
+		else if (check(top) == 0)
+		{
+			ft_putstr("Error");
+		}
+		argc--;
 	}
-	print(top);
+	 while (get_next_line(0, &line))
+        {
+            do_stack(&top, &stack_b, line);
+        }
+	if (sorted(top, ft_lstlen(top)) == 1)
+	{
+		ft_putendl("OK");
+	}
+	else
+		ft_putendl("KO");
 	return (0);
 }

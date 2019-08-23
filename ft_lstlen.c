@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 11:01:25 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/20 12:17:03 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/07/29 16:13:24 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/19 10:46:26 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_strequ(char *s1, char *s2)
+int		ft_lstlen(t_list *r)
 {
-	int i;
-	int j;
+	t_list		*temp;
+	int			len;
 
-	i = 0;
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
+	temp = r;
+	len = 0;
+	while (temp != NULL)
 	{
-		i++;
+		len++;
+		temp = temp->next;
 	}
-	j = (s1[i] - s2[i]);
-	if (j == 0)
-	{
-		return (1);
-	}
-	return (0);
+	return (len);
+}
+
+int		half_mid(int len)
+{
+	int l;
+
+	if (len % 2 == 0)
+		l = len / 2;
+	else
+		l = (len / 2) + 1;
+	return (l);
 }

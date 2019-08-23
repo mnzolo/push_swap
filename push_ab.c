@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   push_ab.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 11:01:25 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/20 12:17:03 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/08/18 17:40:04 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/20 12:03:48 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_strequ(char *s1, char *s2)
+int		do_push(t_list *temp, t_list *p, t_list **s_b, t_list **top)
 {
-	int i;
-	int j;
+	int dat;
 
-	i = 0;
-	if (s1 == 0 || s2 == 0)
+	dat = p->data;
+	if (temp == NULL)
+	{
+		free(p);
 		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
-	{
-		i++;
 	}
-	j = (s1[i] - s2[i]);
-	if (j == 0)
-	{
-		return (1);
-	}
-	return (0);
+	temp->data = dat;
+	temp->next = *top;
+	*top = temp;
+	*s_b = p->next;
+	return (1);
 }

@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   isMax.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 11:01:25 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/20 12:17:03 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/08/19 11:29:10 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/23 16:34:19 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_strequ(char *s1, char *s2)
+int		isMax(char *str)
 {
-	int i;
-	int j;
-
-	i = 0;
-	if (s1 == 0 || s2 == 0)
+	if (ft_strlen(str) == ft_strlen("2147483647"))
+	{
+		if (ft_strcmp(str, "2147483647") > 0)
+		{
+			free(str);
+			return (0);
+		}
+	}
+	else if (ft_strlen(str) > ft_strlen("2147483647"))
+	{
+		free(str);
 		return (0);
-	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
-	{
-		i++;
 	}
-	j = (s1[i] - s2[i]);
-	if (j == 0)
-	{
-		return (1);
-	}
-	return (0);
+	return (1);
 }
