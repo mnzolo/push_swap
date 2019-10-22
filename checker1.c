@@ -6,26 +6,19 @@
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/15 16:37:45 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/23 16:41:37 by mnzolo           ###   ########.fr       */
+/*   Updated: 2019/08/26 13:28:31 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int 	is(char *v)
+int			is(char *v)
 {
 	int i;
 
-
 	i = 0;
-	if (ft_strcmp(v, "2147483647") == 0)
-	{
-		return (1);
-	}
 	if (v[i] == '-' || v[i] == '+')
-	{
 		i++;
-	}
 	while (v[i] >= '0' && v[i] <= '9')
 	{
 		i++;
@@ -35,7 +28,7 @@ int 	is(char *v)
 	return (0);
 }
 
-int	check(t_list *top)
+int			check(t_list *top)
 {
 	t_list *s;
 
@@ -53,44 +46,61 @@ int	check(t_list *top)
 	return (1);
 }
 
-#include <stdio.h>
-int main(int argc, char **argv)
+static int	string(char *c, char z)
 {
-	int 	i;
-	int 	m;
-	char	*line;
+	int		count;
+	int		x;
 
-	t_list 	*top = NULL;
-	t_list 	*stack_b = NULL;
-	i = argc - 1;
-	while (argc - 1)
+	x = 0;
+	count = 0;
+	while (c[x] == z)
+		x++;
+	while (c[x] != '\0')
 	{
-		if (is(argv[i]) == 1 && isMax(argv[i]) == 1)
-		{
-			m = ft_atoi(argv[i]);
-			top = push(m, top);
-			i--;
-		}
-		else if (is(argv[i]) == 0 || isMax(argv[i]) == 0)
-		{
-			ft_putstr("Error");
-			exit(1);
-		}
-		else if (check(top) == 0)
-		{
-			ft_putstr("Error");
-		}
-		argc--;
+		if (x == 0 && c[x] != z)
+			count++;
+		if (c[x] != z && c[x - 1] == z)
+			count++;
+		x++;
 	}
-	 while (get_next_line(0, &line))
-        {
-            do_stack(&top, &stack_b, line);
-        }
-	if (sorted(top, ft_lstlen(top)) == 1)
+	return (count);
+}
+
+char		**argc2(char *s, int *l, int *e)
+{
+	char	**argv;
+
+	*l = string(s, ' ') - 1;
+	*e = *l + 1;
+	argv = ft_strsplit(s, ' ');
+	return (argv);
+}
+
+int			main(int argc, char **argv)
+{
+	t_mtho	x;
+
+	x.r = 1;
+	x.top = NULL;
+	x.stack_b = NULL;
+	x.line = NULL;
+	x.i = argc - 1;
+	x.k = argc - 1;
+	if (argc == 1)
+		return (0);
+	if (argc == 2)
 	{
-		ft_putendl("OK");
+		x.r = 0;
+		x.k = string(argv[1], ' ');
+		argv = argc2(argv[1], &x.i, &argc);
 	}
-	else
-		ft_putendl("KO");
+	x.top = create(argv, argc, x.r, x.i);
+	if (checking(x.top, x.k, ft_lstlen(x.top)) == 0)
+		return (0);
+	while (get_next_line(0, &x.line) && instruct(x.line) == 1)
+		do_stack(&x.top, &x.stack_b, x.line);
+	if (check_create(x.top, x.line) == 0)
+		return (0);
+	sorted(x.top, ft_lstlen(x.top)) == 1 ? ft_putendl("OK") : ft_putendl("KO");
 	return (0);
 }

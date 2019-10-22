@@ -6,13 +6,13 @@
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 14:47:31 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/19 15:55:03 by mnzolo           ###   ########.fr       */
+/*   Updated: 2019/08/24 13:09:11 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	isEmpty(t_list *stack)
+int	isempty(t_list *stack)
 {
 	if (stack == NULL)
 	{

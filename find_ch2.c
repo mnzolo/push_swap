@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   find_ch2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 09:50:38 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/24 12:48:47 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/08/25 10:06:52 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/25 11:00:09 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*plus(int v, t_list *top)
+int		*find_ch2(t_list *top, int a, int b)
 {
-	t_list *tmp;
+	int j;
+	int i;
+	int new;
+	int *chunk;
 
-	tmp = (t_list *)malloc(sizeof(t_list));
-	if (tmp == NULL)
-		return (0);
-	tmp->data = v;
-	tmp->next = top;
-	top = tmp;
-	return (top);
+	j = 0;
+	i = 1;
+	new = 0;
+	chunk = (int *)malloc(sizeof(int) * 7);
+	if ((a - b) % 2 != 0)
+		new += 1;
+	new += (a - b) / 7;
+	chunk[0] = new + b - 1;
+	while (i < 6 && j < 7)
+		chunk[i++] = chunk[j++] + new;
+	chunk[i] = find_max(top);
+	return (chunk);
 }

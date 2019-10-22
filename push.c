@@ -6,7 +6,7 @@
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 13:13:13 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/21 09:24:31 by mnzolo           ###   ########.fr       */
+/*   Updated: 2019/08/24 13:26:11 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	push_b(t_list **top, t_list **stack_b, char c)
 	t_list		*temp;
 	t_list		*p;
 
-	if (isEmpty(*top))
+	if (isempty(*top))
 		return ;
 	p = *top;
 	if (p == NULL)
@@ -54,37 +54,37 @@ void	push_b(t_list **top, t_list **stack_b, char c)
 
 void	push_a(t_list **stack_b, t_list **top, char c)
 {
-	t_list      *temp;
-    t_list      *p;
+	t_list		*temp;
+	t_list		*p;
 
-    if (isEmpty(*stack_b))
-        return ;
-    p = *stack_b;
-    if (p == NULL)
-    {
-        *top = push(p->data, *top);
-        *stack_b = NULL;
-        free(p);
-        return ;
-    }
-    temp = (t_list *)malloc(sizeof(t_list));
-    if (!do_push(temp, p, stack_b, top))
-        return ;
-    if (c == 'c')
-    {
-        free(p);
-        return ;
-    }
-    free(p);
+	if (isempty(*stack_b))
+		return ;
+	p = *stack_b;
+	if (p == NULL)
+	{
+		*top = push(p->data, *top);
+		*stack_b = NULL;
+		free(p);
+		return ;
+	}
+	temp = (t_list *)malloc(sizeof(t_list));
+	if (!do_push(temp, p, stack_b, top))
+		return ;
+	if (c == 'c')
+	{
+		free(p);
+		return ;
+	}
+	free(p);
 	delete_n(*top);
-    ft_putendl("pa");
+	ft_putendl("pa");
 }
 
 void	push_smallest(t_list **stack, t_list **b)
 {
-	int			min;
-	int			location;
-	t_list		*a;
+	int		min;
+	int		location;
+	t_list	*a;
 
 	a = *stack;
 	location = 0;
@@ -95,9 +95,9 @@ void	push_smallest(t_list **stack, t_list **b)
 
 void	push_largest(t_list **stack, t_list **b)
 {
-	int			max;
-	int			location;
-	t_list		*a;
+	int		max;
+	int		location;
+	t_list	*a;
 
 	a = *b;
 	location = 0;

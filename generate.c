@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   generate.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/08/24 12:55:04 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/24 13:42:42 by mnzolo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void			bsmall_to_top(t_list **top, int loc, int len)
@@ -35,7 +47,7 @@ static void		gen_2(int res1, int res2, t_list **top, t_list **b)
 	else
 		while (res2-- >= 1)
 			rrot_ab(top, 'a');
-	if (isEmpty(*b))
+	if (isempty(*b))
 	{
 		push_b(top, b, 'b');
 		return ;
@@ -54,7 +66,7 @@ void			generate(int res1, int res2, t_list **top, t_list **b)
 		else
 			while (res1-- > 1)
 				rot(top, 'a');
-		if (isEmpty(*b))
+		if (isempty(*b))
 		{
 			push_b(top, b, 'b');
 			return ;

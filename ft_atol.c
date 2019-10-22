@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/20 13:56:26 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/24 11:00:31 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/08/24 10:59:46 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/24 12:50:05 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
-	int i;
-	int neg;
-	int res;
+	long	i;
+	long	neg;
+	long	res;
 
 	i = 0;
 	neg = 1;

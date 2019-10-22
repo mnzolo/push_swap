@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   create.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 09:50:38 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/24 12:48:47 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/08/24 16:04:23 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/26 12:54:09 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*plus(int v, t_list *top)
+t_list	*create(char **s, int ac, int r, int i)
 {
-	t_list *tmp;
+	t_list	*top;
+	int		m;
 
-	tmp = (t_list *)malloc(sizeof(t_list));
-	if (tmp == NULL)
-		return (0);
-	tmp->data = v;
-	tmp->next = top;
-	top = tmp;
-	return (top);
+	top = NULL;
+	while (ac - 1 >= r)
+	{
+		if (ismax(s[i]) == 1 && is(s[i]) == 1)
+		{
+			m = ft_atol(s[i]);
+			top = push(m, top);
+			i--;
+		}
+		else if (ismax(s[i]) == 0 || is(s[i]) == 0)
+			return (0);
+		ac--;
+	}
+	return (&*top);
 }

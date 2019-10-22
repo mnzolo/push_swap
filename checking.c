@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   checking.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/29 09:50:38 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/24 12:48:47 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/08/25 17:25:54 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/26 13:17:22 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*plus(int v, t_list *top)
+int		checking(t_list *top, int k, int l)
 {
-	t_list *tmp;
-
-	tmp = (t_list *)malloc(sizeof(t_list));
-	if (tmp == NULL)
+	if (top == NULL || k != l || check(top) == 0)
+	{
+		ft_putstr("Error\n");
 		return (0);
-	tmp->data = v;
-	tmp->next = top;
-	top = tmp;
-	return (top);
+	}
+	return (1);
 }

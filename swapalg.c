@@ -6,7 +6,7 @@
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 13:07:45 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/19 14:18:55 by mnzolo           ###   ########.fr       */
+/*   Updated: 2019/08/24 13:32:34 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,13 @@ void	small_to_top(t_list **top, t_list **b, int loc, int len)
 
 void	ab_swap(t_list *stack_a, t_list *stack_b, char c)
 {
+	c = 'c';
 	nswap(stack_a, c);
 	nswap(stack_b, c);
+	if (c == 'a' || c == 'b')
+		ft_putendl("ss");
+	else if (c == 'c')
+		return ;
 }
 
 void	big_to_top(t_list **top, t_list **b, int loc, int len)

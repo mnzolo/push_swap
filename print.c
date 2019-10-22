@@ -6,20 +6,20 @@
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 17:31:57 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/21 09:29:08 by mnzolo           ###   ########.fr       */
+/*   Updated: 2019/08/24 12:48:09 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    print(t_list *top)
+void	print(t_list *top)
 {
 	if (top == NULL)
 		return ;
-    while (top)
-    {
-        ft_putnbr(top->data);
-        ft_putstr(" -> ");
-        top = top->next;
-    }
+	while (top)
+	{
+		ft_putnbr(top->data);
+		ft_putstr(" -> ");
+		top = top->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 16:14:42 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/20 12:37:44 by mnzolo           ###   ########.fr       */
+/*   Updated: 2019/08/24 15:51:31 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		instruct(char *v)
 {
-	if (ft_strequ(v, "sa") == 1)
+	if (ft_strcmp(v, "sa") == 0)
 		return (1);
-	else if (ft_strequ(v, "sb") == 1)
+	else if (ft_strcmp(v, "sb") == 0)
 		return (1);
 	else if (ft_strcmp(v, "ss") == 0)
 		return (1);

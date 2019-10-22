@@ -6,12 +6,11 @@
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 15:57:48 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/19 12:04:04 by mnzolo           ###   ########.fr       */
+/*   Updated: 2019/08/26 13:32:25 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 static	int	count(char **tmp, char **line)
 {

@@ -6,7 +6,7 @@
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 11:36:37 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/21 12:40:23 by mnzolo           ###   ########.fr       */
+/*   Updated: 2019/08/24 13:11:10 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	sort_5(t_list **stacka, t_list **stackb)
 {
-	int	   i;
-	int    k;
+	int	i;
+	int	k;
 
 	i = 0;
 	while (i < 2)

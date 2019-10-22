@@ -6,7 +6,7 @@
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 17:44:40 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/23 13:17:13 by mnzolo           ###   ########.fr       */
+/*   Updated: 2019/08/25 10:27:43 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void		exce(t_list **a, t_list **b)
 	i = 0;
 	len = ft_lstlen(*a);
 	ch = find_ch(*a, find_max(*a), find_min(*a));
+	if (len == 500)
+		ch = find_ch2(*a, find_max(*a), find_min(*a));
 	while (i < len)
 	{
 		results(a, b, ft_lstlen(*a), ch);

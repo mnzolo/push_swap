@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   check_create.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/20 13:56:26 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/24 11:00:31 by mnzolo           ###   ########.fr       */
+/*   Created: 2019/08/25 17:13:21 by mnzolo            #+#    #+#             */
+/*   Updated: 2019/08/25 17:24:34 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_atoi(const char *str)
+int		check_create(t_list *top, char *line)
 {
-	int i;
-	int neg;
-	int res;
-
-	i = 0;
-	neg = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-			|| str[i] == '\f' || str[i] == '\b' || str[i] == '\r')
+	if (sorted(top, ft_lstlen(top)) == 1 && line == NULL)
 	{
-		i++;
+		ft_putendl("OK");
+		return (0);
 	}
-	if (str[i] == '-')
-		neg = neg * -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	res = 0;
-	while (ft_isdigit(str[i]))
+	if (instruct(line) == 0 && top != NULL && line != NULL)
 	{
-		res = res * 10 + (str[i] - '0');
-		i++;
+		ft_putstr("Error\n");
+		return (0);
 	}
-	return (res * neg);
+	return (1);
 }

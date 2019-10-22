@@ -6,12 +6,11 @@
 /*   By: mnzolo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 13:03:13 by mnzolo            #+#    #+#             */
-/*   Updated: 2019/08/21 12:16:18 by mnzolo           ###   ########.fr       */
+/*   Updated: 2019/08/26 13:32:02 by mnzolo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	do_stack(t_list **a, t_list **b, char *c)
 {
